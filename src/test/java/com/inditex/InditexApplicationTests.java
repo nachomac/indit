@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class SpringBootH2DatabaseExampleApplicationTests {
+public class InditexApplicationTests {
 
 	@Autowired
 	private MockMvc mockMvc;
