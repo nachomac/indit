@@ -1,11 +1,15 @@
 package com.inditex.repository;
-import org.springframework.data.repository.CrudRepository;
-import com.inditex.model.Price;
 
+import com.inditex.model.Price;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
-public interface PriceRepository extends CrudRepository<Price, Integer> {
+@Repository
+public interface PriceRepository extends JpaRepository<Price, Long> {
 
-    List<Price> findByBrandIdAndProductIdAndStartDateBeforeAndEndDateAfter(int brandId, int productId, Date date1,Date date2);
+    @Query("SELECT p FROM Price p WHERE p.brandId = :brandId AND p.productId = :productId AND :applicationDate BETWEEN p.startDate AND p.endDate ORDER BY p.priority DESC")
+    List<Price> findApplicablePrice(int brandId, int productId, Date applicationDate);
 }
