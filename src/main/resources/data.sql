@@ -1,3 +1,8 @@
+-- Crear el índice para la tabla PRICE
+CREATE INDEX IF NOT EXISTS idx_price_brand_product_date
+ON PRICE (brand_id, product_id, start_date, end_date);
+
+-- Inserción de datos en la tabla PRICE
 INSERT INTO PRICE (price_list, brand_id, start_date, end_date, product_id, priority, price, curr)
 VALUES
 (1, 1, '2020-06-14 00:00:00', '2020-12-31 23:59:59', 35455, 0, 35.50, 'EUR'),

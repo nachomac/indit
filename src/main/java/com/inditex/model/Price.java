@@ -2,14 +2,14 @@ package com.inditex.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name = "PRICE")
 public class Price {
 
     @Id
@@ -18,10 +18,10 @@ public class Price {
     @Column
     private int brandId;
     @Column
-    @JsonFormat(pattern = "yyyy-MM-dd-hh.mm.ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startDate;
     @Column
-    @JsonFormat(pattern = "yyyy-MM-dd-hh.mm.ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date endDate;
     @Column
     private int productId;
